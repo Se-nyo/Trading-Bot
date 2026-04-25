@@ -25,4 +25,6 @@ class Portfolio():
         self.positions[symbol]['asset_type'] = asset_type
 
 
-         
+
+
+print (74)
