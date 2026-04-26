@@ -44,3 +44,26 @@ class Portfolio():
 
         else:
             raise TypeError('positions must be a list of dictionaires')
+
+    def remove_positions(self, symbol: str) -> Tuple[bool,str]:
+
+        if symbol in self.positions:
+            del self.positions[symbol]
+            return(True, "{symbol} was successfully removed".format(symbol=symbol))
+        else:
+            return (False, "{symbol} did not exist in the portfolio".format(symbol=symbol))
+        
+    def total_allocation(self):
+        pass
+    
+    def risk_exposure(self):
+        pass
+
+    def  in_portfolio(self, symbol:str) -> bool:
+
+        if symbol in self.positions:
+            return True
+        else:
+            return False
+
+    def is_profitable(self ):
