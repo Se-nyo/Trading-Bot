@@ -24,7 +24,23 @@ class Portfolio():
         self.positions[symbol]['purchase_date'] = purchase_date
         self.positions[symbol]['asset_type'] = asset_type
 
+        return self.positions
 
+    def add_positions(self, positions: List[dict]) -> dict:
 
+        if isinstance(positions, list):
 
-print (74)
+            for position in positions:
+
+                self.add_position(
+                    symbol = position['symbol'],
+                    asset_type = position['asset_type'],
+                    purchase_date = positions.get('purchase_date',None),
+                    purchase_price = position.get('purchase_price',0.00),
+                    quantity = position.get('quantity',0)
+                )
+
+                return self.positions
+
+        else:
+            raise TypeError('positions must be a list of dictionaires')
