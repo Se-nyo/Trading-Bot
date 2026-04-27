@@ -53,12 +53,6 @@ class Portfolio():
         else:
             return (False, "{symbol} did not exist in the portfolio".format(symbol=symbol))
         
-    def total_allocation(self):
-        pass
-    
-    def risk_exposure(self):
-        pass
-
     def  in_portfolio(self, symbol:str) -> bool:
 
         if symbol in self.positions:
@@ -66,4 +60,22 @@ class Portfolio():
         else:
             return False
 
-    def is_profitable(self ):
+    def is_profitable(self, symbol: str, current_price: float) -> bool:
+
+        #Grab purchase price
+        purchase_price = self.positions[symbol]['purchase_price']
+
+        if (purchase_price <= current_price):
+            return True
+        else:
+            return False
+
+    def total_allocation(self):
+        pass
+
+    def total_market_value(self):
+        pass
+
+    def risk_exposure(self):
+        pass
+ 
